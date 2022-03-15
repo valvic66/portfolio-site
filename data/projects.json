@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "project-1",
+    "title": "Project 1",
+    "image": "./images/progressive1.jpg"
+  },
+  {
+    "slug": "project-2",
+    "title": "Project 2",
+    "image": "./images/sunflower.jpg"
+  },
+  {
+    "slug": "project-3",
+    "title": "Project 3",
+    "image": "./images/mario.png"
+  }
+]

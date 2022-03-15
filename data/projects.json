@@ -2,16 +2,25 @@
   {
     "slug": "project-1",
     "title": "Project 1",
-    "image": "./images/progressive1.jpg"
+    "image": "./images/progressive1.jpg",
+    "demo_url": "https://project1-demo.com",
+    "code_url": "https://project1-code.com",
+    "description": "First portfolio project"
   },
   {
     "slug": "project-2",
     "title": "Project 2",
-    "image": "./images/sunflower.jpg"
+    "image": "./images/sunflower.jpg",
+    "demo_url": "https://project2-demo.com",
+    "code_url": "https://project2-code.com",
+    "description": "Second portfolio project"
   },
   {
     "slug": "project-3",
     "title": "Project 3",
-    "image": "./images/mario.png"
+    "image": "./images/mario.png",
+    "demo_url": "https://project3-demo.com",
+    "code_url": "https://project3-code.com",
+    "description": "Third portfolio project"
   }
 ]

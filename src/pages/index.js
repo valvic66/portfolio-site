@@ -1,31 +1,55 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Site from "../components/site"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+const siteData = {
+  slug: "project-1",
+  title: "Project 1",
+  src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80",
+  demoUrl: "https://project1-demo.com",
+  codeUrl: "https://project1-code.com",
+  description: "First portfolio project",
+}
+
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allProjectsJson {
+        edges {
+          node {
+            slug
+            title
+            code_url
+            demo_url
+            description
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { allProjectsJson: { edges } } = data;
+  const {node: {image: {childImageSharp : {fluid}}}, node: {title}} = edges[0];
+  console.log('fluid', fluid, title);
+
+  return (
+    <Layout>
+      <p>Hello Valentin</p>
+      <Site
+        title={title}
+        imageData={fluid}
+      />
+    </Layout>
+  )
+}
 
 export default IndexPage

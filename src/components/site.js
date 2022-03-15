@@ -1,9 +1,7 @@
 import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import { Image } from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const Site = ({ slug, title, demoUrl, codeUrl, description, imageData }) => {
-  console.log(title, description, imageData)
   return (
     <>
       <div>
@@ -18,8 +16,7 @@ const Site = ({ slug, title, demoUrl, codeUrl, description, imageData }) => {
             <a href={codeUrl}>Code Url</a>
           </li>
         </ul>
-        {/* <StaticImage alt={title} fluid={imageData} /> */}
-        <Image alt={title} fluid={imageData} />
+        <GatsbyImage image={imageData} alt={title} />
       </div>
     </>
   )

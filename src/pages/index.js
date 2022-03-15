@@ -1,17 +1,9 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Site from "../components/site"
-
-const siteData = {
-  slug: "project-1",
-  title: "Project 1",
-  src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80",
-  demoUrl: "https://project1-demo.com",
-  codeUrl: "https://project1-code.com",
-  description: "First portfolio project",
-}
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -26,9 +18,7 @@ const IndexPage = () => {
             description
             image {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 1024)
               }
             }
           }
@@ -37,17 +27,28 @@ const IndexPage = () => {
     }
   `)
 
-  const { allProjectsJson: { edges } } = data;
-  const {node: {image: {childImageSharp : {fluid}}}, node: {title}} = edges[0];
-  console.log('fluid', fluid, title);
+  const projects = data?.allProjectsJson?.edges
 
   return (
     <Layout>
       <p>Hello Valentin</p>
-      <Site
-        title={title}
-        imageData={fluid}
-      />
+      {projects?.map((project, key) => {
+        const { title, description, slug, code_url, demo_url, image } =
+          project?.node
+        const img = getImage(image)
+
+        const siteProps = {
+          imageData: img,
+          title,
+          description,
+          slug,
+          codeUrl: code_url,
+          demoUrl: demo_url,
+          imageData: img,
+        }
+
+        return <Site {...siteProps} key={key} />
+      })}
     </Layout>
   )
 }

@@ -1,12 +1,14 @@
 import * as React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 const Site = ({ slug, title, demoUrl, codeUrl, description, imageData }) => {
   return (
     <>
       <div>
-        <p>{`/${slug}`}</p>
-        <h1>{title}</h1>
+        <h2>
+          <Link to={`/${slug}/`}>{title}</Link>
+        </h2>
         <p>{description}</p>
         <ul>
           <li>
@@ -16,7 +18,9 @@ const Site = ({ slug, title, demoUrl, codeUrl, description, imageData }) => {
             <a href={codeUrl}>Code Url</a>
           </li>
         </ul>
-        <GatsbyImage image={imageData} alt={title} />
+        <Link to={`/${slug}/`}>
+          <GatsbyImage image={imageData} alt={title} />
+        </Link>
       </div>
     </>
   )

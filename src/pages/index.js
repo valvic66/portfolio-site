@@ -7,7 +7,7 @@ import Site from "../components/site"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    {
+    query {
       allProjectsJson {
         edges {
           node {
@@ -31,7 +31,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <p>Hello Valentin</p>
       {projects?.map((project, key) => {
         const { title, description, slug, code_url, demo_url, image } =
           project?.node
@@ -44,7 +43,6 @@ const IndexPage = () => {
           slug,
           codeUrl: code_url,
           demoUrl: demo_url,
-          imageData: img,
         }
 
         return <Site {...siteProps} key={key} />

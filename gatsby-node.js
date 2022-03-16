@@ -1,9 +1,28 @@
-exports.createPages = async ({ actions }) => {
-  const { createPage } = actions
-  createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const result = await graphql(`
+    {
+      allProjectsJson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.error) {
+    reporter.panic("Error")
+    return;
+  }
+
+  const projects = result?.data?.allProjectsJson?.edges
+  console.log('projects', projects)
+  projects?.forEach(({ node: {slug} }) => {
+    actions.createPage({
+      path: `/${slug}/`,
+      component: require.resolve("./src/templates/site.js"),
+      context: { slug }
+    })
   })
 }

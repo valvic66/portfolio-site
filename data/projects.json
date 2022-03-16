@@ -1,26 +1,50 @@
 [
   {
     "slug": "project-1",
-    "title": "Project 1",
-    "image": "./images/progressive1.jpg",
+    "title": "Portfolio Site",
+    "image": "./images/image1.jpg",
     "demo_url": "https://project1-demo.com",
     "code_url": "https://project1-code.com",
-    "description": "First portfolio project"
+    "description": "Portfolio site created with Gatsby.js and Material UI"
   },
   {
     "slug": "project-2",
     "title": "Project 2",
-    "image": "./images/sunflower.jpg",
+    "image": "./images/image2.jpg",
     "demo_url": "https://project2-demo.com",
     "code_url": "https://project2-code.com",
-    "description": "Second portfolio project"
+    "description": "Portfolio site created with Gatsby.js and Material UI"
   },
   {
     "slug": "project-3",
     "title": "Project 3",
-    "image": "./images/mario.png",
+    "image": "./images/image3.jpg",
     "demo_url": "https://project3-demo.com",
     "code_url": "https://project3-code.com",
-    "description": "Third portfolio project"
+    "description": "Portfolio site created with Gatsby.js and Material UI"
+  },
+  {
+    "slug": "project-4",
+    "title": "Project 4",
+    "image": "./images/image4.jpg",
+    "demo_url": "https://project4-demo.com",
+    "code_url": "https://project4-code.com",
+    "description": "Portfolio site created with Gatsby.js and Material UI"
+  },
+  {
+    "slug": "project-5",
+    "title": "Project 5",
+    "image": "./images/image3.jpg",
+    "demo_url": "https://project5-demo.com",
+    "code_url": "https://project5-code.com",
+    "description": "Portfolio site created with Gatsby.js and Material UI"
+  },
+  {
+    "slug": "project-6",
+    "title": "Project 6",
+    "image": "./images/image4.jpg",
+    "demo_url": "https://project6-demo.com",
+    "code_url": "https://project6-code.com",
+    "description": "Portfolio site created with Gatsby.js and Material UI"
   }
 ]

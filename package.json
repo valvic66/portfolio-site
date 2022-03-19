@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
+    "@mui/styles": "^5.5.1",
     "gatsby": "^4.9.3",
     "gatsby-plugin-gatsby-cloud": "^4.9.1",
     "gatsby-plugin-image": "^2.9.1",

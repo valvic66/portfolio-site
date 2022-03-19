@@ -13,16 +13,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   if (result.error) {
     reporter.panic("Error")
-    return;
+    return
   }
 
   const projects = result?.data?.allProjectsJson?.edges
-  console.log('projects', projects)
-  projects?.forEach(({ node: {slug} }) => {
+  console.log("projects", projects)
+  projects?.forEach(({ node: { slug } }) => {
     actions.createPage({
       path: `/${slug}/`,
       component: require.resolve("./src/templates/site.js"),
-      context: { slug }
+      context: { slug },
     })
+  })
+
+  actions.createPage({
+    path: "/hero/",
+    component: require.resolve("./src/templates/herosection.js"),
   })
 }

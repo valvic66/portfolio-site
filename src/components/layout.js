@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
       <Container maxWidth="md">
         <Box className="gohome-arrow-container">
           <Link to="/" style={{ textDecoration: "none"}}>
-            <span style={{ color: "white" }}>&#8592;</span>
+            <span>&#8592;</span>
           </Link>
         </Box>
         <main>{children}</main>

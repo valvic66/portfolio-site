@@ -28,9 +28,10 @@ const Sites = ({projects}) => {
             item
             md={6}
             lg={4}
+            key={key}
             // style={{border: '1px solid pink'}}
           >
-            <Site {...siteProps} key={key} />
+            <Site {...siteProps} />
           </Grid>
         )
       })}

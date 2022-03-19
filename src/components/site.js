@@ -7,31 +7,32 @@ import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 
 const Site = ({
-    slug,
-    title,
-    demoUrl,
-    codeUrl,
-    description,
-    imageData,
-    showInternalLinks = true,
-    isCard = true
-  }) => {
-
+  slug,
+  title,
+  demoUrl,
+  codeUrl,
+  description,
+  imageData,
+  showInternalLinks = true,
+  isCard = true,
+}) => {
   const cardContent = (
     <>
       <Typography variant="h4" textAlign="center" gutterBottom>
         {showInternalLinks ? (
-            <Link to={`/${slug}/`} style={{textDecoration: "none"}}>{title}</Link>
-          ):(
-            title
-          )}
+          <Link to={`/${slug}/`} style={{ textDecoration: "none" }}>
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
       </Typography>
       <Box my={2}>
         {showInternalLinks ? (
           <Link to={`/${slug}/`}>
             <GatsbyImage image={imageData} alt={title} />
           </Link>
-        ):(
+        ) : (
           <GatsbyImage image={imageData} alt={title} />
         )}
       </Box>
@@ -43,22 +44,19 @@ const Site = ({
         <a href={codeUrl}>Code Url</a>
       </Typography>
     </>
-  );
-  
+  )
+
   return (
     <>
-      {
-        isCard ? (
-          <Card
-            // sx={{ minWidth: 300 }}
-          >
-            <CardContent>
-              {cardContent}
-            </CardContent>
-          </Card>
-
-        ) : cardContent
-      }
+      {isCard ? (
+        <Card
+        // sx={{ minWidth: 300 }}
+        >
+          <CardContent>{cardContent}</CardContent>
+        </Card>
+      ) : (
+        cardContent
+      )}
     </>
   )
 }

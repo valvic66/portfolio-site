@@ -595,3 +595,22 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.gohome-arrow-container {
+  border: 1px solid;
+  width: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding: 3px 5px;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white;
+}
+
+.main-container {
+  position: relative;
+}

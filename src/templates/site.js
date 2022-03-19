@@ -1,6 +1,9 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import { getImage } from "gatsby-plugin-image"
+import Site from "../components/site"
+import './site.css';
 
 export const query = graphql`
   query ($slug: String!) {
@@ -20,10 +23,24 @@ export const query = graphql`
 
 const SiteTemplate = ({ data }) => {
   const site = data.projectsJson
-  console.log("sites", site)
+  const { title, demo_url, code_url, description, image } = site
+  const img = getImage(image)
+
+  const siteProps = {
+    imageData: img,
+    title,
+    description,
+    codeUrl: code_url,
+    demoUrl: demo_url,
+  }
+
   return (
     <Layout>
-      <pre>{JSON.stringify(site, null, 2)}</pre>
+      <Site
+        {...siteProps}
+        showInternalLinks={false}
+        isCard={false}
+      />
     </Layout>
   )
 }
